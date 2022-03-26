@@ -1,0 +1,23 @@
+<input type="text" id="url">
+<iframe id="video" width="100%" height="100%" src="http://www.youtube.com/embed/hwEN3zNn68M"></iframe>
+<style>
+    iframe {
+        border: none;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<script>
+    document.getElementById('url').addEventListener('keydown', function(e) {
+        if (e.which == 13) {
+            let url = document.getElementById('url').value.trim()
+            let id = url.replace('https://youtu.be/','')
+            let newUrl = 'http://www.youtube.com/embed/' + id
+            let iframe = document.getElementById('video')
+            iframe.setAttribute('src', newUrl)
+        }
+    })
+</script>
